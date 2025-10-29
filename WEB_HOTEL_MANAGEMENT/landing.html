@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khách Sạn - Trang Chủ</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .landing-container {
+            max-width: 600px;
+            width: 90%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .landing-header {
+            margin-bottom: 50px;
+        }
+        .landing-header h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .landing-header p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .landing-btn {
+            padding: 20px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        .btn-customer-login {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-customer-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        .btn-customer-register {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        .btn-customer-register:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(240, 147, 251, 0.4);
+        }
+        .btn-manager {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        .btn-manager:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.4);
+        }
+        .divider {
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+        .divider span {
+            padding: 0 10px;
+            color: #999;
+            font-size: 0.9em;
+        }
+        .guest-link {
+            margin-top: 20px;
+        }
+        .guest-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        .guest-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .landing-container {
+                padding: 40px 20px;
+            }
+            .landing-header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <div class="landing-header">
+            <h1>🏨</h1>
+            <h1>Khách Sạn Resort</h1>
+            <p>Chào mừng bạn đến với hệ thống đặt phòng</p>
+        </div>
+
+        <div class="button-group">
+            <a href="customer-login.html" class="landing-btn btn-customer-login">
+                👤 Đăng Nhập Khách Hàng
+            </a>
+            
+            <a href="customer-register.html" class="landing-btn btn-customer-register">
+                ✏️ Đăng Ký Tài Khoản Mới
+            </a>
+        </div>
+
+        <div class="divider">
+            <span>hoặc</span>
+        </div>
+
+        <div class="button-group">
+            <a href="manager-login.html" class="landing-btn btn-manager">
+                🔐 Đăng Nhập Quản Lý
+            </a>
+        </div>
+
+        <div class="guest-link">
+            <a href="index.html">Tiếp tục với tư cách khách →</a>
+        </div>
+    </div>
+</body>
+</html>
