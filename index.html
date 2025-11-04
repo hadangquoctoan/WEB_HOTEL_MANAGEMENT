@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking - Customer Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hệ Thống Đặt Phòng Khách Sạn</h1>
+            <p class="subtitle">Đặt phòng nghỉ dưỡng hoàn hảo của bạn</p>
+        </header>
+
+        <main>
+            <form id="bookingForm" class="booking-form">
+                <div class="form-section">
+                    <h2>Thông Tin Khách Hàng</h2>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Họ và Tên *</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="Nguyễn Văn A">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Địa Chỉ Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="example@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Số Điện Thoại *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="0912 345 678">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Địa Chỉ</label>
+                        <textarea id="address" name="address" rows="2" placeholder="Địa chỉ, Thành phố, Tỉnh"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Chi Tiết Đặt Phòng</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkIn">Ngày Nhận Phòng *</label>
+                            <input type="date" id="checkIn" name="checkIn" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="checkOut">Ngày Trả Phòng *</label>
+                            <input type="date" id="checkOut" name="checkOut" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="roomType">Loại Phòng *</label>
+                            <select id="roomType" name="roomType" required>
+                                <option value="">Chọn loại phòng</option>
+                                <option value="bungalow-2nl2te-sat-bien">BUNGALOW (2NL+2TE) SÁT BIỂN - 1,400,000 VNĐ/đêm</option>
+                                <option value="bungalow-2nl1te-sat-bien">BUNGALOW (2NL+1TE) SÁT BIỂN - 1,000,000 VNĐ/đêm</option>
+                                <option value="bungalow-2nl1te-huong-bien">BUNGALOW (2NL+1TE) HƯỚNG BIỂN - 800,000 VNĐ/đêm</option>
+                                <option value="bungalow-2nl2te-huong-bien">BUNGALOW (2NL+2TE) HƯỚNG BIỂN - 1,200,000 VNĐ/đêm</option>
+                                <option value="bungalow-4nl-sat-bien">BUNGALOW 4NL SÁT BIỂN - 1,600,000 VNĐ/đêm</option>
+                                <option value="villa-nha-go-view-bien">VILLA NHÀ GỖ VIEW BIỂN - 7,000,000 VNĐ/đêm</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adults">Số Người Lớn *</label>
+                                <input type="number" id="adults" name="adults" min="1" max="10" value="1" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="children">Số Trẻ Em</label>
+                                <input type="number" id="children" name="children" min="0" max="10" value="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Yêu Cầu Đặc Biệt</h2>
+                    
+                    <div class="form-group">
+                        <label for="specialRequests">Ghi Chú Thêm</label>
+                        <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Yêu cầu hoặc ghi chú đặc biệt..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Gửi Yêu Cầu Đặt Phòng</button>
+                    <button type="reset" class="btn btn-secondary">Xóa Form</button>
+                </div>
+            </form>
+
+            <div id="successMessage" class="success-message hidden">
+                <div class="success-content">
+                    <span class="success-icon">✓</span>
+                    <h3>Yêu Cầu Đặt Phòng Đã Được Gửi Thành Công!</h3>
+                    <p>Yêu cầu đặt phòng của bạn đã được gửi đến bộ phận quản lý. Chúng tôi sẽ liên hệ với bạn sớm để xác nhận.</p>
+                    <button onclick="closeSuccessMessage()" class="btn btn-primary">Đặt Phòng Khác</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Hệ Thống Quản Lý Khách Sạn © 2025</p>
+            <div class="footer-links">
+                <a href="landing.html">Trang Chủ</a>
+                <a href="manager-login.html">Quản Lý</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="customer.js"></script>
+</body>
+</html>

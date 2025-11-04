@@ -1,0 +1,71 @@
+// Manager Login JavaScript - Connected to Backend API
+
+// Tự động phát hiện API URL dựa trên môi trường
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:5001'
+    : `http://${window.location.hostname}:5001`;
+
+document.addEventListener('DOMContentLoaded', function() {
+    const currentManager = localStorage.getItem('currentManager');
+    if (currentManager) {
+        window.location.href = 'manager.html';
+        return;
+    }
+    document.getElementById('loginForm').addEventListener('submit', handleLogin);
+});
+
+async function handleLogin(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/managers?username=${encodeURIComponent(username)}`);
+        if (response.ok) {
+            const managers = await response.json();
+            const manager = managers.find(m => m.username === username && m.password === password);
+            if (manager) {
+                const managerSession = {
+                    id: manager.id,
+                    name: manager.name,
+                    email: manager.email,
+                    username: manager.username,
+                    role: manager.role || 'manager',
+                    loginTime: new Date().toISOString()
+                };
+                localStorage.setItem('currentManager', JSON.stringify(managerSession));
+                window.location.href = 'manager.html';
+                return;
+            }
+        }
+        const localManagers = JSON.parse(localStorage.getItem('hotelManagers') || '[]');
+        const localManager = localManagers.find(m => m.username === username && m.password === password);
+        if (localManager) {
+            const managerSession = {
+                id: localManager.id,
+                name: localManager.name,
+                email: localManager.email,
+                username: localManager.username,
+                role: localManager.role || 'manager',
+                loginTime: new Date().toISOString()
+            };
+            localStorage.setItem('currentManager', JSON.stringify(managerSession));
+            window.location.href = 'manager.html';
+        } else {
+            showError('Username or password incorrect!');
+        }
+    } catch (error) {
+        console.error('Login error:', error);
+        showError('Connection error! Please try again.');
+    }
+}
+
+function showError(message) {
+    const errorDiv = document.getElementById('errorMessage');
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+    setTimeout(() => {
+        errorDiv.style.display = 'none';
+    }, 3000);
+}
+
